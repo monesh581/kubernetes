@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: internal-policy
+spec:
+  policyType:
+    - egress
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              name: payroll
+
+    - to:
+        - podSelector:
+            matchLabels:
+              name: mysql
